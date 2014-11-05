@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+	"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!-- 廣告佈局 -->
+    <definition name=".ad" path="/WEB-INF/pages/tiles/layouts/adLayout.jsp">
+        <put name="title"  value="程式語言討論區" />
+        <put name="header" value="/WEB-INF/pages/tiles/common/header.jsp" />
+        <put name="menu"   value="/WEB-INF/pages/tiles/common/menu.jsp" />
+        <put name="footer" value="/WEB-INF/pages/tiles/common/footer.jsp" />
+        <put name="body"   value="/WEB-INF/pages/tiles/common/body.jsp" />
+    </definition>
+
+	<!-- 主要佈局 -->
+    <definition name="mainLayout" path="/WEB-INF/pages/tiles/layouts/mainLayout.jsp">
+        <put name="title"  value="程式語言討論區" />
+        <put name="menu"   value="/WEB-INF/pages/tiles/common/menu.jsp" />
+        <put name="footer" value="/WEB-INF/pages/tiles/common/footer.jsp" />
+        <put name="body"   value="/WEB-INF/pages/tiles/common/body.jsp" />
+    </definition>
+
+	<!-- 管理後台佈局 -->
+    <definition name=".adminLayout" path="/WEB-INF/pages/tiles/layouts/adminLayout.jsp">
+        <put name="title"  value="程式語言討論區 - 管理後台" />
+        <put name="menu"   value="/WEB-INF/pages/tiles/common/menu.jsp" />
+        <put name="body"   value="/WEB-INF/pages/tiles/common/body.jsp" />
+    </definition>
+    
+	<!-- 首頁，繼承廣告佈局 -->
+    <definition name="index" extends=".ad">
+        <put name="title"  value="程式語言討論區 - 首頁" />
+        <put name="body"   value="/WEB-INF/pages/index/body.jsp" />
+    </definition>
+    
+	<!-- 註冊，繼承主要佈局 -->
+    <definition name="user_register" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 註冊" />
+        <put name="body"   value="/WEB-INF/pages/form/register.jsp" />
+    </definition>
+    
+	<!-- 註冊成功，繼承主要佈局 -->
+    <definition name="user_saveSuccess" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 註冊成功" />
+        <put name="body"   value="/WEB-INF/pages/form/success.jsp" />
+    </definition>
+    
+	<!-- 管理後台，顯示討論區列表，繼承管理後台佈局 -->
+    <definition name="admin_forums_display" extends=".adminLayout">
+        <put name="body"   value="/WEB-INF/pages/admin/forumsDisplay.jsp" />
+    </definition>
+    
+	<!-- 管理後台，新增討論區，繼承管理後台佈局 -->
+    <definition name="admin_forums_add" extends=".adminLayout">
+        <put name="body"   value="/WEB-INF/pages/admin/forumsAdd.jsp" />
+    </definition>
+    
+	<!-- 管理後台，修改討論區，繼承管理後台佈局 -->
+    <definition name="admin_forums_update" extends=".adminLayout">
+        <put name="body"   value="/WEB-INF/pages/admin/forumsUpdate.jsp" />
+    </definition>
+    
+	<!-- 文章主題列表，繼承主要佈局 -->
+    <definition name="theme_list" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 文章列表" />
+        <put name="body"   value="/WEB-INF/pages/theme/list.jsp" />
+    </definition>
+    
+	<!-- 文章主題搜尋結果，繼承主要佈局 -->
+    <definition name="theme_search_result" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 搜尋結果" />
+        <put name="body"   value="/WEB-INF/pages/theme/searchResultPage.jsp" />
+    </definition>
+    
+	<!-- 新增文章頁面，繼承主要佈局 -->
+    <definition name="article_add" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 新增文章" />
+        <put name="body"   value="/WEB-INF/pages/article/articleAdd.jsp" />
+    </definition>
+    
+	<!-- 新增文章成功，繼承主要佈局 -->
+    <definition name="article_saveSuccess" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 新增文章成功" />
+        <put name="body"   value="/WEB-INF/pages/article/success.jsp" />
+    </definition>
+    
+	<!-- 文章內容列表，繼承主要佈局 -->
+    <definition name="article_list" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 文章" />
+        <put name="body"   value="/WEB-INF/pages/article/list.jsp" />
+    </definition>
+    
+	<!-- 回應文章頁面，繼承主要佈局 -->
+    <definition name="article_respond" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 回應文章" />
+        <put name="body"   value="/WEB-INF/pages/article/respond.jsp" />
+    </definition>
+    
+	<!-- 修改密碼頁面，繼承主要佈局 -->
+    <definition name="member_changePassword" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 修改密碼" />
+        <put name="body"   value="/WEB-INF/pages/member/changePassword.jsp" />
+    </definition>
+    
+	<!-- 修改密碼成功，繼承主要佈局 -->
+    <definition name="member_changePasswordSuccess" extends="mainLayout">
+        <put name="title"  value="程式語言討論區 - 修改密碼成功" />
+        <put name="body"   value="/WEB-INF/pages/member/changePasswordSuccess.jsp" />
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+		
+	<bean name="/index" class="com.forum.action.IndexAction">
+		<property name="forumsService" ref="forumsService"/>
+	</bean>
+		
+	<bean name="/register" class="com.forum.action.RegisterAction">
+		<property name="userService" ref="userService"/>
+	</bean>
+		
+	<bean name="/loginAndOut" class="com.forum.action.LoginAndOutAction">
+		<property name="userService" ref="userService"/>
+		<property name="forumsService" ref="forumsService"/>
+	</bean>
+		
+	<bean name="/admin" class="com.forum.action.AdminAction">
+		<property name="forumsService" ref="forumsService"/>
+		<property name="userService" ref="userService"/>
+	</bean>
+		
+	<bean name="/theme" class="com.forum.action.ThemeAction">
+		<property name="themeService" ref="themeService"/>
+	</bean>
+		
+	<bean name="/article" class="com.forum.action.ArticleAction">
+		<property name="userService" ref="userService"/>
+		<property name="themeService" ref="themeService"/>
+		<property name="articleService" ref="articleService"/>
+		<property name="hitsService" ref="hitsService"/>
+	</bean>
+		
+	<bean name="/member" class="com.forum.action.MemberAction">
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+</beans>

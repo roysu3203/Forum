@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 使用者Dao -->
+	<bean id="userDao" class="com.forum.dao.impl.UserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- 使用者Service -->
+    <bean id="userService" class="com.forum.service.impl.UserService">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    
+	<!-- 討論版Dao -->
+	<bean id="forumsDao" class="com.forum.dao.impl.ForumsDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- 討論版Service -->
+    <bean id="forumsService" class="com.forum.service.impl.ForumsService">
+        <property name="forumsDao" ref="forumsDao"/>
+    </bean>
+    
+	<!-- 文章主題Dao -->
+	<bean id="themeDao" class="com.forum.dao.impl.ThemeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- 文章主題Service -->
+    <bean id="themeService" class="com.forum.service.impl.ThemeService">
+        <property name="themeDao" ref="themeDao"/>
+    </bean>
+    
+	<!-- 文章Dao -->
+	<bean id="articleDao" class="com.forum.dao.impl.ArticleDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- 文章Service -->
+    <bean id="articleService" class="com.forum.service.impl.ArticleService">
+        <property name="articleDao" ref="articleDao"/>
+    </bean>
+    
+	<!-- 點擊率Dao -->
+	<bean id="hitsDao" class="com.forum.dao.impl.HitsDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+	<!-- 點擊率Service -->
+    <bean id="hitsService" class="com.forum.service.impl.HitsService">
+        <property name="hitsDao" ref="hitsDao"/>
+    </bean>
+	
+</beans>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<!-- Form -->
+	<form-beans>
+		<form-bean name="userForm" type="com.forum.form.UserForm"/>
+	</form-beans>
+
+	<!-- global -->
+	<global-forwards>
+		<forward name="index" path="index"/>
+	</global-forwards>
+	
+	<!-- Mapping -->
+	<action-mappings>
+		<action path="/index" type="org.springframework.web.struts.DelegatingActionProxy">
+		</action>
+		
+		<action path="/register" name="userForm" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="register" path="user_register"/>
+			<forward name="success" path="user_saveSuccess"/>
+		</action>
+		
+		<action path="/loginAndOut" name="userForm" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+		</action>
+		
+		<action path="/admin" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="forums_display" path="admin_forums_display"/>
+			<forward name="forums_add" path="admin_forums_add"/>
+			<forward name="forums_update" path="admin_forums_update"/>
+		</action>
+		
+		<action path="/theme" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="theme_list" path="theme_list"/>
+			<forward name="theme_search_result" path="theme_search_result"/>
+		</action>
+		
+		<action path="/article" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="article_add" path="article_add"/>
+			<forward name="article_saveSuccess" path="article_saveSuccess"/>
+			<forward name="article_list" path="article_list"/>
+			<forward name="article_respond" path="article_respond"/>
+		</action>
+		
+		<action path="/member" parameter="action" type="org.springframework.web.struts.DelegatingActionProxy">
+			<forward name="changePassword" path="member_changePassword"/>
+			<forward name="changePasswordSuccess" path="member_changePasswordSuccess"/>
+		</action>
+		
+		<!-- API -->
+		<action path="/validateAccount" type="org.springframework.web.struts.DelegatingActionProxy">
+		</action>
+		
+	</action-mappings>
+	
+	<!-- Spring -->
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/applicationContext.xml"/>
+	</plug-in>
+	
+	<!-- Tiles -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+		<set-property property="definitions-config" value="/WEB-INF/tiles-config/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+		<set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+
+</struts-config>
